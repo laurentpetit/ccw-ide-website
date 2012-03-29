@@ -1,0 +1,28 @@
+doctype 5
+html
+  head
+    title Counterclockwise
+    meta charset="utf-8"
+
+  body
+    header
+      ul
+        li
+          a href='/' Home
+        li
+          a href='blog.html' Blog
+    #main role="main"
+      - if is_blog_article?
+        - content_for :blog_article, yield
+        == partial settings.blog_article_template
+      - else
+        == yield
+    / aside
+    /   h2
+    /     | Recent Articles
+    /     a href="/archives" Archive
+    /   ol
+    /     - data.blog.articles[0...10].each do |article|
+    /       li
+    /         a href=[article.url] =article.title
+    /         span =article.date.strftime('%b %e')
