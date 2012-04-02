@@ -5,12 +5,7 @@ html
     meta charset="utf-8"
 
   body
-    header
-      ul
-        li
-          a href='/' Home
-        li
-          a href='blog.html' Blog
+    == partial "partials/header"
     #main role="main"
       - if is_blog_article?
         - content_for :blog_article, yield
