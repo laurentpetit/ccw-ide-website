@@ -21,3 +21,7 @@ configure :build do
   # Enable cache buster
   # activate :cache_buster
 end
+
+use Rack::Auth::Basic, "Restricted Area" do |username, password|
+ [username, password] == ['ccw', 'get-magic-now!']
+end
