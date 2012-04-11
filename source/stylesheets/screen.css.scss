@@ -1,3 +1,109 @@
+@import "compass";
+@import "susy";
+
+@include font-face("TitilliumText22LThin", font-files("../fonts/TitilliumText22L001-webfont.eot", "../fonts/TitilliumText22L001-webfont.woff", "../fonts/TitilliumText22L001-webfont.ttf", "../fonts/TitilliumText22L001-webfont.svg#TitilliumText22LThin"));
+@include font-face("TitilliumText22LLight", font-files("../fonts/TitilliumText22L002-webfont.eot", "../fonts/TitilliumText22L002-webfont.woff", "../fonts/TitilliumText22L001-webfont.ttf", "../fonts/TitilliumText22L002-webfont.svg#TitilliumText22LThin"));
+@include font-face("TitilliumText22LRegular", font-files("../fonts/TitilliumText22L003-webfont.eot", "../fonts/TitilliumText22L003-webfont.woff", "../fonts/TitilliumText22L003-webfont.ttf", "../fonts/TitilliumText22L003-webfont.svg#TitilliumText22LThin"));
+@include font-face("TitilliumText22LMedium", font-files("../fonts/TitilliumText22L004-webfont.eot", "../fonts/TitilliumText22L004-webfont.woff", "../fonts/TitilliumText22L004-webfont.ttf", "../fonts/TitilliumText22L004-webfont.svg#TitilliumText22LThin"));
+@include font-face("TitilliumText22LBold", font-files("../fonts/TitilliumText22L005-webfont.eot", "../fonts/TitilliumText22L005-webfont.woff", "../fonts/TitilliumText22L005-webfont.ttf", "../fonts/TitilliumText22L005-webfont.svg#TitilliumText22LThin"));
+@include font-face("TitilliumText22LXBold", font-files("../fonts/TitilliumText22L006-webfont.eot", "../fonts/TitilliumText22L006-webfont.woff", "../fonts/TitilliumText22L006-webfont.ttf", "../fonts/TitilliumText22L006-webfont.svg#TitilliumText22LThin"));
+
 body {
+  @include global-reset;
   background: #efefef;
+  color: #7282a7;
+  font-family: "TitilliumText22LRegular", sans-serif;
+  margin: 0;
+}
+
+.wrapper {
+  @include container;
+}
+
+header {
+  background: #fff;
+  h1 {
+    font-size: 30px;
+    padding-top: 20px;
+  }
+  h2 {
+    font-family: "TitilliumText22LThin";
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
+  nav {
+    background: #475366;
+    border-top: 2px solid #e0e7f9;
+    ul {
+      height: 30px;
+      margin-top: 20px;
+      li {
+        display: inline;
+        font-family: "TitilliumText22LBold";
+        font-size: 16px;
+        margin-right: 30px;
+        text-transform: uppercase;
+        a {
+          color: #e4e5e8;
+        }
+      }
+    }
+  }
+}
+
+.intro {
+  background: #10151d url("../images/bg-intro.png") center no-repeat;
+  height: 440px;
+  h2 {
+    color: #fff;
+    font-family: "TitilliumText22LBold";
+    font-size: 32px;
+    padding-top: 72px;
+  }
+  .video {
+    float: right;
+  }
+}
+
+.main-content {
+  @include columns(8);
+  font-size: 0.8em;
+  margin-top: 40px;
+  h3 {
+    @include clearfix;
+    font-family: "TitilliumText22LBold";
+    font-size: 26px;
+    margin: 30px 0;
+  }
+  h4 {
+    font-family: "TitilliumText22LThin";
+    font-size: 20px;
+  }
+  .features-left {
+    @include columns(5);
+  }
+  .features-right {
+    @include columns(5);
+    @include prefix(2);
+  }
+  ul {
+    margin-top: 10px;
+    li {
+      list-style-type: disc;
+    }
+  }
+}
+
+.sidebar {
+  @include columns(3);
+  @include prefix(1);
+}
+
+footer {
+  background-color: #475366;
+  border-top: 2px solid #ccdbff;
+}
+
+a {
+  text-decoration: none;
 }
