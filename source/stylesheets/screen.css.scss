@@ -8,11 +8,17 @@
 @include font-face("TitilliumText22LBold", font-files("../fonts/TitilliumText22L005-webfont.eot", "../fonts/TitilliumText22L005-webfont.woff", "../fonts/TitilliumText22L005-webfont.ttf", "../fonts/TitilliumText22L005-webfont.svg#TitilliumText22LThin"));
 @include font-face("TitilliumText22LXBold", font-files("../fonts/TitilliumText22L006-webfont.eot", "../fonts/TitilliumText22L006-webfont.woff", "../fonts/TitilliumText22L006-webfont.ttf", "../fonts/TitilliumText22L006-webfont.svg#TitilliumText22LThin"));
 
+@mixin footer-padding {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
 body {
   @include global-reset;
   background: #efefef;
   color: #7282a7;
   font-family: "TitilliumText22LRegular", sans-serif;
+  line-height: 130%;
   margin: 0;
 }
 
@@ -22,6 +28,7 @@ body {
 
 header {
   background: #fff;
+  color: #000;
   h1 {
     font-size: 30px;
     padding-top: 20px;
@@ -58,6 +65,7 @@ header {
     color: #fff;
     font-family: "TitilliumText22LBold";
     font-size: 32px;
+    line-height: 100%;
     padding-top: 72px;
   }
   .video {
@@ -74,10 +82,12 @@ header {
     font-family: "TitilliumText22LBold";
     font-size: 26px;
     margin: 30px 0;
+    line-height: 100%;
   }
   h4 {
     font-family: "TitilliumText22LThin";
     font-size: 20px;
+    margin-bottom: 10px;
   }
   .features-left {
     @include columns(5);
@@ -92,6 +102,11 @@ header {
       list-style-type: disc;
     }
   }
+  .more {
+    float: right;
+    margin-bottom: 40px;
+    margin-top: 10px;
+  }
 }
 
 .sidebar {
@@ -102,6 +117,29 @@ header {
 footer {
   background-color: #475366;
   border-top: 2px solid #ccdbff;
+  color: #fff;
+  font-size: 0.8em;
+  .meta {
+    @include columns(3);
+    @include footer-padding;
+    h1 {
+      font-size: 28px;
+    } 
+  }
+  .contents {
+    @include columns(4);
+    @include prefix(1);
+    @include footer-padding;
+    ul {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+  .social {
+    @include columns(3);
+    @include prefix(1);
+    @include footer-padding;
+  }
 }
 
 a {
