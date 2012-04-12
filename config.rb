@@ -10,6 +10,9 @@ page "/feed.xml", :layout => false
 set :erb, :layout_engine => :slim
 set :blog_layout_engine, "slim"
 
+# Susy Grids in Compass
+require 'susy'
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
