@@ -12,3 +12,4 @@ Run the server:
 middleman
 ```
 
+## Deploy on heroku
