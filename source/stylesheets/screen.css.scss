@@ -9,13 +9,13 @@
 @include font-face("TitilliumText22LXBold", font-files("../fonts/TitilliumText22L006-webfont.eot", "../fonts/TitilliumText22L006-webfont.woff", "../fonts/TitilliumText22L006-webfont.ttf", "../fonts/TitilliumText22L006-webfont.svg#TitilliumText22LThin"));
 
 @mixin footer-padding {
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 40px;
 }
 
 body {
   @include global-reset;
-  background: #efefef;
+  background: #f5f5f5 url("../images/bg-paper.png");
   color: #7282a7;
   font-family: "TitilliumText22LRegular", sans-serif;
   line-height: 130%;
@@ -107,24 +107,52 @@ header {
     margin-bottom: 40px;
     margin-top: 10px;
   }
+  .testimonial {
+    .avatar {
+      
+    }
+    .bubble {
+      
+    }
+  }
 }
 
 .sidebar {
   @include columns(3);
   @include prefix(1);
+  margin-top: 70px;
+  .callout {
+    @include border-radius(3px);
+    @include box-shadow(#999 0 0 3px);
+    background: #f3f3f3;
+    color: #666;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  h5 {
+    color: #7282a7;
+    font-family: "TitilliumText22LBold";
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
 }
 
 footer {
   background-color: #475366;
   border-top: 2px solid #ccdbff;
   color: #fff;
-  font-size: 0.8em;
   .meta {
     @include columns(3);
     @include footer-padding;
     h1 {
       font-size: 28px;
-    } 
+      margin-bottom: 10px;
+    }
+    p {
+      font-family: "TitilliumText22LThin";
+      font-size: 0.8em;
+    }
   }
   .contents {
     @include columns(4);
@@ -132,7 +160,10 @@ footer {
     @include footer-padding;
     ul {
       float: left;
-      margin-right: 20px;
+      margin-right: 70px;
+      li {
+        font-size: 0.8em;
+      }
     }
   }
   .social {
@@ -140,8 +171,36 @@ footer {
     @include prefix(1);
     @include footer-padding;
   }
+  a {
+    color: #b5c4ea;
+  }
 }
 
 a {
   text-decoration: none;
+}
+
+
+.twitter-bubble {
+  @include border-radius(10px);
+  background: #364154;
+  color: #fff;
+  padding: 15px;
+  position: relative;
+  p {
+    font-size: 0.8em;
+  }
+}
+
+.twitter-bubble:after {
+  border-color: transparent #364154;
+  border-style: solid;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 23px;
+  left: -20px;
+  bottom: auto;
+  border-width: 10px 20px 10px 0;
+  width: 0; 
 }
