@@ -60,13 +60,24 @@ header {
 
 .intro {
   background: #10151d url("../images/bg-intro.png") center no-repeat;
-  height: 440px;
+  padding: 40px 0;
   h2 {
     color: #fff;
     font-family: "TitilliumText22LBold";
     font-size: 32px;
     line-height: 100%;
-    padding-top: 72px;
+    
+  }
+  .quote {
+    color: #abbde7;
+    font-family: "Georgia", serif;
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 60px;
+  }
+  .source {
+    margin-top: 15px;
+    text-transform: uppercase;
   }
   .video {
     float: right;
@@ -78,10 +89,9 @@ header {
   font-size: 0.8em;
   margin-top: 40px;
   h3 {
-    @include clearfix;
     font-family: "TitilliumText22LBold";
     font-size: 26px;
-    margin: 30px 0;
+    margin: 40px 0 20px 0;
     line-height: 100%;
   }
   h4 {
@@ -108,11 +118,13 @@ header {
     margin-top: 10px;
   }
   .testimonial {
+    @include columns(5);
+    @include suffix(1);
+    @include clearfix;
+    padding: 20px 0;
     .avatar {
-      
-    }
-    .bubble {
-      
+      float: left;
+      margin-right: 10px;
     }
   }
 }
@@ -180,6 +192,42 @@ a {
   text-decoration: none;
 }
 
+/* BUBBLES! */
+
+.quote-bubble {
+  @include border-radius(3px);
+  @include box-shadow(#999 0 0 3px);
+  background: #f3f3f3;
+  margin-left: 30px;
+  padding: 15px;
+  position: relative;
+}
+
+.quote-bubble:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  display: block;
+  width: 0;
+  top: 22px;
+  bottom: auto;
+  left: -15px;
+  border-width: 15px 15px 15px 0;
+  border-color: transparent #CCC;
+}
+
+.quote-bubble:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  display: block;
+  width: 0;
+  top: 10px;
+  bottom: auto;
+  left: -15px;
+  border-width: 26px 15px 15px 0;
+  border-color: transparent #f5f5f5;
+}
 
 .twitter-bubble {
   @include border-radius(10px);
@@ -192,7 +240,7 @@ a {
   }
 }
 
-.twitter-bubble:after {
+.twitter-bubble:before {
   border-color: transparent #364154;
   border-style: solid;
   content: "";
@@ -203,4 +251,124 @@ a {
   bottom: auto;
   border-width: 10px 20px 10px 0;
   width: 0; 
+}
+
+/* BUTTONS! */
+
+.grey-button {
+  @include border-radius(6px);
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e7eaf1), color-stop(1, #e7eaf1) );
+	background: -moz-linear-gradient( center top, #e7eaf1 5%, #e7eaf1 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaf1', endColorstr='#e7eaf1');
+	background-color: #e7eaf1;
+	border: 1px solid #c1c6dc;
+	display: inline-block;
+	color: #7282a7;
+	font-size: 15px;
+	margin-top: 20px;
+	padding: 12px 24px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #ffffff;
+}
+.grey-button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e7eaf1), color-stop(1, #e7eaf1) );
+	background: -moz-linear-gradient( center top, #e7eaf1 5%, #e7eaf1 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaf1', endColorstr='#e7eaf1');
+	background-color: #e7eaf1;
+}
+.grey-button:active {
+	position: relative;
+	top: 1px;
+}
+
+.purple-button {
+  @include border-radius(6px);
+	-moz-box-shadow: inset 0px 1px 0px 0px #ccbadf;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ccbadf;
+	box-shadow: inset 0px 1px 0px 0px #ccbadf;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bfa8d9), color-stop(1, #b39dcb) );
+	background: -moz-linear-gradient( center top, #bfa8d9 5%, #b39dcb 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfa8d9', endColorstr='#b39dcb');
+	background-color: #bfa8d9;
+	border: 1px solid #7c6496;
+	display: inline-block;
+	color: #7c6496;
+	font-size: 15px;
+	margin-top: 20px;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #ccbadf;
+}
+.purple-button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b39dcb), color-stop(1, #bfa8d9) );
+	background: -moz-linear-gradient( center top, #b39dcb 5%, #bfa8d9 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b39dcb', endColorstr='#bfa8d9');
+	background-color: #b39dcb;
+}
+.purple-button:active {
+	position: relative;
+	top: 1px;
+}
+
+
+.get-started-button {
+  @include border-radius(6px);
+	-moz-box-shadow: inset 0px 1px 0px 0px #d8e561;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #d8e561;
+	box-shadow: inset 0px 1px 0px 0px #d8e561;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8d243), color-stop(1, #acc43f) );
+	background: -moz-linear-gradient( center top, #b8d243 5%, #acc43f 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8d243', endColorstr='#acc43f');
+	background-color: #b8d243;
+	border:1px solid  #d6e789;
+	display: inline-block;
+	color: #161e29;
+	font-size: 28px;
+	margin-top: 20px;
+	padding: 18px 24px 14px 24px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #d8e561;
+}
+.get-started-button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #acc43f), color-stop(1, #b8d243) );
+	background: -moz-linear-gradient( center top, #acc43f 5%, #b8d243 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#acc43f', endColorstr='#b8d243');
+	background-color: #acc43f;
+}
+.get-started-button:active {
+	position: relative;
+	top: 1px;
+}
+
+
+.github-button {
+  @include border-radius(6px);
+	-moz-box-shadow: inset 0px 1px 0px 0px #1f2c3f;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #1f2c3f;
+	box-shadow: inset 0px 1px 0px 0px #1f2c3f;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1f2c3f), color-stop(1, #1d293a) );
+	background: -moz-linear-gradient( center top, #1f2c3f 5%, #1d293a 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f2c3f', endColorstr='#1d293a');
+	background-color: #1f2c3f;
+	border: 1px solid #2f3b4d;
+	display: inline-block;
+	color: #6b7482;
+	font-size: 18px;
+	margin-left: 20px;
+	padding: 18px 24px 14px 24px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #080b0f;
+}
+.github-button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1d293a), color-stop(1, #1f2c3f) );
+	background: -moz-linear-gradient( center top, #1d293a 5%, #1f2c3f 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d293a', endColorstr='#1f2c3f');
+	background-color: #1d293a;
+}
+.github-button:active {
+	position: relative;
+	top: 1px;
 }
