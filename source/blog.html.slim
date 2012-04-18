@@ -1,12 +1,18 @@
-h1 Recent Articles
-- data.blog.articles[0...5].each_with_index do |article, i|
-  article class=[(i == 0) ? 'first' : '']
-    h2
-      a href=[article.url] = article.title
-      span= (article.date.strftime('%b %e %Y'))
-    == (article.summary)
-    .more
-      a href=(article.url) read on »
+.intro
+  .wrapper
+    h2 What makes Counterclockwise so great?
+
+.main-content
+  .wrapper
+    h1 Recent Articles
+    - data.blog.articles[0...5].each_with_index do |article, i|
+      article class=[(i == 0) ? 'first' : '']
+        h2
+          a href=[article.url] = article.title
+          span= (article.date.strftime('%b %e %Y'))
+        == (article.summary)
+        .more
+          a href=(article.url) read on »
       
-h2
-  a href="/archives" Archives
+    h2
+      a href="/archives" Archives

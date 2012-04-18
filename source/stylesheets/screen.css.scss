@@ -13,6 +13,11 @@
   padding-bottom: 40px;
 }
 
+@mixin button {
+  display: inline-block;
+  margin-top: 20px;
+}
+
 body {
   @include global-reset;
   background: #f5f5f5 url("../images/bg-paper.png");
@@ -31,24 +36,27 @@ header {
   color: #000;
   h1 {
     font-size: 30px;
-    padding-top: 20px;
+    padding-top: 35px;
   }
   h2 {
     font-family: "TitilliumText22LThin";
     font-size: 16px;
-    padding-bottom: 20px;
+  }
+  .logo {
+    float: left;
+    margin: 20px 20px 20px 0;
   }
   nav {
     background: #475366;
     border-top: 2px solid #e0e7f9;
     ul {
       height: 30px;
-      margin-top: 20px;
+      margin-top: 15px;
       li {
         display: inline;
         font-family: "TitilliumText22LBold";
-        font-size: 16px;
-        margin-right: 30px;
+        font-size: 14px;
+        margin-right: 1.2em;
         text-transform: uppercase;
         a {
           color: #e4e5e8;
@@ -179,9 +187,21 @@ footer {
     }
   }
   .social {
-    @include columns(3);
-    @include prefix(1);
+    @include columns(4);
     @include footer-padding;
+    .icons {
+      float: left;
+      width: 20%;
+      img {
+        margin-bottom: 15px;
+      }
+      a {
+        @include opacity(0.5);
+      }
+      a:hover {
+        @include opacity(1.0);
+      }
+    }
   }
   a {
     color: #b5c4ea;
@@ -233,8 +253,10 @@ a {
   @include border-radius(10px);
   background: #364154;
   color: #fff;
+  float: right;
   padding: 15px;
   position: relative;
+  width: 70%;
   p {
     font-size: 0.8em;
   }
@@ -246,7 +268,7 @@ a {
   content: "";
   display: block;
   position: absolute;
-  top: 23px;
+  top: 53px;
   left: -20px;
   bottom: auto;
   border-width: 10px 20px 10px 0;
@@ -256,27 +278,19 @@ a {
 /* BUTTONS! */
 
 .grey-button {
+  @include background-image(linear-gradient(center top, #e7eaf1, #e7eaf1));
   @include border-radius(6px);
-	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e7eaf1), color-stop(1, #e7eaf1) );
-	background: -moz-linear-gradient( center top, #e7eaf1 5%, #e7eaf1 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaf1', endColorstr='#e7eaf1');
+  @include single-box-shadow(#ffffff, 0px 1px 0px 0px, true);
+  @include button;
 	background-color: #e7eaf1;
 	border: 1px solid #c1c6dc;
-	display: inline-block;
 	color: #7282a7;
 	font-size: 15px;
-	margin-top: 20px;
 	padding: 12px 24px;
-	text-decoration: none;
 	text-shadow: 1px 1px 0px #ffffff;
 }
 .grey-button:hover {
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e7eaf1), color-stop(1, #e7eaf1) );
-	background: -moz-linear-gradient( center top, #e7eaf1 5%, #e7eaf1 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaf1', endColorstr='#e7eaf1');
+  @include background-image(linear-gradient(center top, #e7eaf1, #e7eaf1));
 	background-color: #e7eaf1;
 }
 .grey-button:active {
@@ -285,27 +299,19 @@ a {
 }
 
 .purple-button {
+  @include background-image(linear-gradient(center top, #bfa8d9, #b39dcb));
   @include border-radius(6px);
-	-moz-box-shadow: inset 0px 1px 0px 0px #ccbadf;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #ccbadf;
-	box-shadow: inset 0px 1px 0px 0px #ccbadf;
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bfa8d9), color-stop(1, #b39dcb) );
-	background: -moz-linear-gradient( center top, #bfa8d9 5%, #b39dcb 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfa8d9', endColorstr='#b39dcb');
+  @include single-box-shadow(#ccbadf, 0px 1px 0px 0px, true);
+  @include button;
 	background-color: #bfa8d9;
 	border: 1px solid #7c6496;
-	display: inline-block;
 	color: #7c6496;
 	font-size: 15px;
-	margin-top: 20px;
 	padding: 6px 24px;
-	text-decoration: none;
 	text-shadow: 1px 1px 0px #ccbadf;
 }
 .purple-button:hover {
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b39dcb), color-stop(1, #bfa8d9) );
-	background: -moz-linear-gradient( center top, #b39dcb 5%, #bfa8d9 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b39dcb', endColorstr='#bfa8d9');
+  @include background-image(linear-gradient(center top, #b39dcb, #bfa8d9));
 	background-color: #b39dcb;
 }
 .purple-button:active {
@@ -313,29 +319,20 @@ a {
 	top: 1px;
 }
 
-
 .get-started-button {
+  @include background-image(linear-gradient(center top, #b8d243, #acc43f));
   @include border-radius(6px);
-	-moz-box-shadow: inset 0px 1px 0px 0px #d8e561;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #d8e561;
-	box-shadow: inset 0px 1px 0px 0px #d8e561;
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8d243), color-stop(1, #acc43f) );
-	background: -moz-linear-gradient( center top, #b8d243 5%, #acc43f 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8d243', endColorstr='#acc43f');
+  @include single-box-shadow(#d8e561, 0px 1px 0px 0px, true);
+  @include button;
 	background-color: #b8d243;
 	border:1px solid  #d6e789;
-	display: inline-block;
 	color: #161e29;
 	font-size: 28px;
-	margin-top: 20px;
 	padding: 18px 24px 14px 24px;
-	text-decoration: none;
 	text-shadow: 1px 1px 0px #d8e561;
 }
 .get-started-button:hover {
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #acc43f), color-stop(1, #b8d243) );
-	background: -moz-linear-gradient( center top, #acc43f 5%, #b8d243 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#acc43f', endColorstr='#b8d243');
+  @include background-image(linear-gradient(center top, #acc43f, #b8d243));
 	background-color: #acc43f;
 }
 .get-started-button:active {
@@ -343,29 +340,24 @@ a {
 	top: 1px;
 }
 
-
 .github-button {
+  @include background-image(linear-gradient(center top, #1f2c3f, #1d293a));
   @include border-radius(6px);
-	-moz-box-shadow: inset 0px 1px 0px 0px #1f2c3f;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #1f2c3f;
-	box-shadow: inset 0px 1px 0px 0px #1f2c3f;
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1f2c3f), color-stop(1, #1d293a) );
-	background: -moz-linear-gradient( center top, #1f2c3f 5%, #1d293a 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f2c3f', endColorstr='#1d293a');
+  @include single-box-shadow(#1f2c3f, 0px 1px 0px 0px, true);
+  @include button;
 	background-color: #1f2c3f;
 	border: 1px solid #2f3b4d;
-	display: inline-block;
 	color: #6b7482;
 	font-size: 18px;
 	margin-left: 20px;
-	padding: 18px 24px 14px 24px;
-	text-decoration: none;
+	padding: 8px 24px 14px 24px;
 	text-shadow: 1px 1px 0px #080b0f;
+	img {
+	  margin-right: 20px;
+	}
 }
 .github-button:hover {
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1d293a), color-stop(1, #1f2c3f) );
-	background: -moz-linear-gradient( center top, #1d293a 5%, #1f2c3f 100% );
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d293a', endColorstr='#1f2c3f');
+	@include background-image(linear-gradient(center top, #1d293a, #1f2c3f));
 	background-color: #1d293a;
 }
 .github-button:active {
