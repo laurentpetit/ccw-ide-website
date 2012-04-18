@@ -4,6 +4,7 @@ activate :directory_indexes
 # set :blog_summary_separator, /READMORE/
 # set :blog_summary_length, 500
 
+
 page "/feed.xml", :layout => false
 
 # custom middleman blog setup
