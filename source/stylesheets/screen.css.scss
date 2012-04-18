@@ -1,5 +1,9 @@
+/* IMPORTS */
+
 @import "compass";
 @import "susy";
+
+/* FONTS */
 
 @include font-face("TitilliumText22LThin", font-files("../fonts/TitilliumText22L001-webfont.eot", "../fonts/TitilliumText22L001-webfont.woff", "../fonts/TitilliumText22L001-webfont.ttf", "../fonts/TitilliumText22L001-webfont.svg#TitilliumText22LThin"));
 @include font-face("TitilliumText22LLight", font-files("../fonts/TitilliumText22L002-webfont.eot", "../fonts/TitilliumText22L002-webfont.woff", "../fonts/TitilliumText22L001-webfont.ttf", "../fonts/TitilliumText22L002-webfont.svg#TitilliumText22LThin"));
@@ -8,15 +12,35 @@
 @include font-face("TitilliumText22LBold", font-files("../fonts/TitilliumText22L005-webfont.eot", "../fonts/TitilliumText22L005-webfont.woff", "../fonts/TitilliumText22L005-webfont.ttf", "../fonts/TitilliumText22L005-webfont.svg#TitilliumText22LThin"));
 @include font-face("TitilliumText22LXBold", font-files("../fonts/TitilliumText22L006-webfont.eot", "../fonts/TitilliumText22L006-webfont.woff", "../fonts/TitilliumText22L006-webfont.ttf", "../fonts/TitilliumText22L006-webfont.svg#TitilliumText22LThin"));
 
+/* MIXINS */
+
 @mixin footer-padding {
   padding-top: 50px;
-  padding-bottom: 40px;
 }
 
 @mixin button {
   display: inline-block;
   margin-top: 20px;
 }
+
+@mixin selfclear {
+  display: inline-block;
+  &:after {
+    content: ".";
+  	display: block;
+  	height: 0;
+  	clear: both;
+  	visibility: hidden;
+  }
+}
+
+/* LAYOUT */
+
+html, body, #main { height: 100%; }
+
+body > #main { height: auto; min-height: 100%; }
+
+* html .clearfix { height: 1%; }
 
 body {
   @include global-reset;
@@ -94,6 +118,7 @@ header {
 
 .main-content {
   @include columns(8);
+  @include selfclear;
   font-size: 0.8em;
   margin-top: 40px;
   h3 {
@@ -162,6 +187,10 @@ footer {
   background-color: #475366;
   border-top: 2px solid #ccdbff;
   color: #fff;
+  position: relative;
+  margin-top: -180px; /* negative value of footer height */
+  height: 180px;
+  clear: both;
   .meta {
     @include columns(3);
     @include footer-padding;
