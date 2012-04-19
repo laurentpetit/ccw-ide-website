@@ -315,7 +315,7 @@ a {
 	border: 1px solid #c1c6dc;
 	color: #7282a7;
 	font-size: 15px;
-	padding: 12px 24px;
+	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #ffffff;
 }
 .grey-button:hover {
@@ -336,7 +336,7 @@ a {
 	border: 1px solid #7c6496;
 	color: #7c6496;
 	font-size: 15px;
-	padding: 6px 24px;
+	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #ccbadf;
 }
 .purple-button:hover {
@@ -357,7 +357,7 @@ a {
 	border:1px solid  #d6e789;
 	color: #161e29;
 	font-size: 28px;
-	padding: 18px 24px 14px 24px;
+	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #d8e561;
 }
 .get-started-button:hover {
@@ -379,10 +379,11 @@ a {
 	color: #6b7482;
 	font-size: 18px;
 	margin-left: 20px;
-	padding: 8px 24px 14px 24px;
+	padding: 0.5em 1.0em;
 	text-shadow: 1px 1px 0px #080b0f;
 	img {
-	  margin-right: 20px;
+	  margin-right: 10px;
+	  vertical-align: bottom;
 	}
 }
 .github-button:hover {
