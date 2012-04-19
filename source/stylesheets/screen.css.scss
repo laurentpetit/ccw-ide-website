@@ -14,15 +14,6 @@
 
 /* MIXINS */
 
-@mixin footer-padding {
-  padding-top: 50px;
-}
-
-@mixin button {
-  display: inline-block;
-  margin-top: 20px;
-}
-
 @mixin selfclear {
   display: inline-block;
   &:after {
@@ -93,27 +84,43 @@ header {
 .intro {
   background: #10151d url("../images/bg-intro.png") center no-repeat;
   padding: 40px 0;
-  h2 {
-    color: #fff;
-    font-family: "TitilliumText22LBold";
-    font-size: 32px;
-    line-height: 100%;
-    
+  .overview {
+    @include columns(8);
+    h2 {
+      color: #fff;
+      font-family: "TitilliumText22LBold";
+      font-size: 32px;
+      line-height: 100%;
+
+    }
+    .quote {
+      color: #abbde7;
+      font-family: "Georgia", serif;
+      font-size: 24px;
+      font-style: italic;
+      margin-top: 60px;
+    }
+    .source {
+      margin-top: 15px;
+      text-transform: uppercase;
+    }
   }
-  .quote {
-    color: #abbde7;
-    font-family: "Georgia", serif;
-    font-size: 24px;
-    font-style: italic;
-    margin-top: 60px;
+  #video-preview {
+    @include columns(4);
+    @include border-radius(5px);
+    border: 2px solid #626f8e;
+    position: relative;
+    .video-caption {
+      position: absolute;
+      top: 237px;
+      text-align: center;
+      width: 100%;
+    }
   }
-  .source {
-    margin-top: 15px;
-    text-transform: uppercase;
-  }
-  .video {
-    float: right;
-  }
+}
+
+a:hover#video-preview {
+  color: #fff;
 }
 
 .main-content {
@@ -122,6 +129,7 @@ header {
   font-size: 0.8em;
   margin-top: 40px;
   h3 {
+    clear: both;
     font-family: "TitilliumText22LBold";
     font-size: 26px;
     margin: 40px 0 20px 0;
@@ -151,11 +159,14 @@ header {
     margin-top: 10px;
   }
   .testimonial {
-    @include columns(5);
+    @include columns(6);
     @include suffix(1);
-    @include clearfix;
+    margin-bottom: 20px;
     padding: 20px 0;
+    position: relative;
     .avatar {
+      @include box-shadow(#ccc 0 0 10px);
+      border: 5px solid #fff;
       float: left;
       margin-right: 10px;
     }
@@ -167,9 +178,10 @@ header {
   @include prefix(1);
   margin-top: 70px;
   .callout {
-    @include border-radius(3px);
-    @include box-shadow(#999 0 0 3px);
+    @include border-radius(4px);
+    @include box-shadow(inset 0 1px 0 #fff, 0 0 6px RGBA(30,40,55,.08));
     background: #f3f3f3;
+    border: 1px solid RGBA(22,30,44,.15);
     color: #666;
     font-size: 0.8em;
     margin-bottom: 20px;
@@ -193,7 +205,7 @@ footer {
   clear: both;
   .meta {
     @include columns(3);
-    @include footer-padding;
+    padding-top: 50px;
     h1 {
       font-size: 28px;
       margin-bottom: 10px;
@@ -206,7 +218,7 @@ footer {
   .contents {
     @include columns(4);
     @include prefix(1);
-    @include footer-padding;
+    padding-top: 50px;
     ul {
       float: left;
       margin-right: 70px;
@@ -217,7 +229,7 @@ footer {
   }
   .social {
     @include columns(4);
-    @include footer-padding;
+    padding-top: 50px;
     .icons {
       float: left;
       width: 20%;
@@ -235,47 +247,44 @@ footer {
   a {
     color: #b5c4ea;
   }
+  a:hover {
+    color: #fff;
+  }
 }
 
+/* ANCHORS */
+
 a {
+  color: #9c6ad2;
   text-decoration: none;
+}
+
+a:hover {
+  color: #000;
 }
 
 /* BUBBLES! */
 
 .quote-bubble {
-  @include border-radius(3px);
-  @include box-shadow(#999 0 0 3px);
+  @include border-radius(10px);
+  @include box-shadow(0 0 6px RGBA(30,40,55,.08));
   background: #f3f3f3;
-  margin-left: 30px;
+  border: 1px solid RGBA(38,50,70,.15);
+  margin-left: 10px;
   padding: 15px;
   position: relative;
+  width: 50%;
+  float: left;
 }
 
 .quote-bubble:before {
-  content: "";
+  background-image: url("/images/quote-bubble-arrow.png");
+  width: 31px;
+  height: 23px;
   position: absolute;
-  border-style: solid;
-  display: block;
-  width: 0;
-  top: 22px;
-  bottom: auto;
-  left: -15px;
-  border-width: 15px 15px 15px 0;
-  border-color: transparent #CCC;
-}
-
-.quote-bubble:after {
+  left: -31px;
+  top: 80px;
   content: "";
-  position: absolute;
-  border-style: solid;
-  display: block;
-  width: 0;
-  top: 10px;
-  bottom: auto;
-  left: -15px;
-  border-width: 26px 15px 15px 0;
-  border-color: transparent #f5f5f5;
 }
 
 .twitter-bubble {
@@ -310,11 +319,12 @@ a {
   @include background-image(linear-gradient(center top, #e7eaf1, #e7eaf1));
   @include border-radius(6px);
   @include single-box-shadow(#ffffff, 0px 1px 0px 0px, true);
-  @include button;
 	background-color: #e7eaf1;
 	border: 1px solid #c1c6dc;
 	color: #7282a7;
+	display: inline-block;
 	font-size: 15px;
+	margin-top: 20px;
 	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #ffffff;
 }
@@ -331,11 +341,12 @@ a {
   @include background-image(linear-gradient(center top, #bfa8d9, #b39dcb));
   @include border-radius(6px);
   @include single-box-shadow(#ccbadf, 0px 1px 0px 0px, true);
-  @include button;
 	background-color: #bfa8d9;
 	border: 1px solid #7c6496;
 	color: #7c6496;
+	display: inline-block;
 	font-size: 15px;
+	margin-top: 10px;
 	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #ccbadf;
 }
@@ -352,11 +363,12 @@ a {
   @include background-image(linear-gradient(center top, #b8d243, #acc43f));
   @include border-radius(6px);
   @include single-box-shadow(#d8e561, 0px 1px 0px 0px, true);
-  @include button;
 	background-color: #b8d243;
 	border:1px solid  #d6e789;
 	color: #161e29;
+	display: inline-block;
 	font-size: 28px;
+	margin-top: 20px;
 	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #d8e561;
 }
@@ -373,12 +385,13 @@ a {
   @include background-image(linear-gradient(center top, #1f2c3f, #1d293a));
   @include border-radius(6px);
   @include single-box-shadow(#1f2c3f, 0px 1px 0px 0px, true);
-  @include button;
 	background-color: #1f2c3f;
 	border: 1px solid #2f3b4d;
 	color: #6b7482;
+	display: inline-block;
 	font-size: 18px;
 	margin-left: 20px;
+	margin-top: 20px;
 	padding: 0.5em 1.0em;
 	text-shadow: 1px 1px 0px #080b0f;
 	img {
@@ -389,8 +402,20 @@ a {
 .github-button:hover {
 	@include background-image(linear-gradient(center top, #1d293a, #1f2c3f));
 	background-color: #1d293a;
+	color: #ccc;
 }
 .github-button:active {
 	position: relative;
 	top: 1px;
+}
+
+// VIDEO STUFF
+.apple_overlay {
+  @include border-radius(4px);
+  @include box-shadow(0 1px 12px 5px rgba(0, 0, 0, 0.35));
+  background: #eee url(/images/non.png);
+  display: none;
+  width: 560px;
+  height: 315px;
+  padding: 8px;
 }

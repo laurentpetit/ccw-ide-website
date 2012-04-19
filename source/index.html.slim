@@ -1,12 +1,15 @@
 .intro
   .wrapper
-    h2 Install Counterclockwise for Eclipse and start developing Clojure in minutes!
-    a.get-started-button href="/" Get Started
-    a.github-button href="/"
-      img(src="/images/github-button.png" alt="Github") View on Github
-    p.quote "This plugin makes me way more productive!"
-    p.source Mitch Trickey
-    .video
+    .overview
+      h2 Install Counterclockwise for Eclipse and start developing Clojure in minutes!
+      a.get-started-button href="/" Get Started
+      a.github-button href="/"
+        img(src="/images/github-button.png" alt="Github") View on Github
+      p.quote "This plugin makes me way more productive!"
+      p.source Mitch Trickey
+    a#video-preview href="#" rel="#video"
+      img(src="/images/video-screenshot.png")
+      .video-caption Features Overview
 
 .wrapper
   .main-content
@@ -28,14 +31,14 @@
     a.grey-button href="/" Check out all of the features »
     h3 Who uses Counterclockwise?
     .testimonial
-      .avatar
+      img.avatar(src="/images/grand.jpg")
       .quote-bubble
         p
           strong Christophe Grand
         p Counterclockwise really helped me get started in writing Clojure!
         a href="/" more »
     .testimonial
-      .avatar
+      img.avatar(src="/images/emerick.jpg")
       .quote-bubble
         p
           strong Chas Emerick
@@ -50,8 +53,30 @@
     .callout
       h5 Support Counterclockwise
       p Counterclockwise is an open source project. Donate and help its development efforts.
+      img(src="/images/hr-callout.png")
       a.purple-button href="/" Donate
     .callout
       h5 Contribute
       p Developers who want to contribute should come here.
+      img(src="/images/hr-callout.png")
       a.purple-button href="/" Contribute
+      
+.apple_overlay.black#video
+  object width="560" height="315"
+    param name="movie" value="http://www.youtube.com/v/1T0ZjBMIQS8?version=3&amp;hl=en_US&autoplay=1"
+    param name="allowFullScreen" value="true"
+    param name="allowscriptaccess" value="always"
+    embed src="http://www.youtube.com/v/1T0ZjBMIQS8?version=3&amp;hl=en_US&autoplay=1" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"
+
+javascript:
+  $(function() {
+    $("#video-preview[rel]").overlay({
+      effect: 'apple',
+      mask: {
+        color: '#000',
+        loadSpeed: 200,
+        opacity: 0.6
+      },
+      closeOnClick: true
+    });
+  });
