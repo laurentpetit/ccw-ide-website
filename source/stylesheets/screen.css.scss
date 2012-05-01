@@ -84,15 +84,14 @@ header {
 .intro {
   background: #10151d url("../images/bg-intro.png") center no-repeat;
   padding: 40px 0;
+  h2 {
+    color: #fff;
+    font-family: "TitilliumText22LRegular";
+    font-size: 30px;
+    line-height: 100%;
+  }
   .overview {
     @include columns(8);
-    h2 {
-      color: #fff;
-      font-family: "TitilliumText22LBold";
-      font-size: 32px;
-      line-height: 100%;
-
-    }
     .quote {
       color: #abbde7;
       font-family: "Georgia", serif;
@@ -368,7 +367,7 @@ a:hover {
 	color: #161e29;
 	display: inline-block;
 	font-size: 28px;
-	margin-top: 20px;
+	margin-top: 40px;
 	padding: 0.6em 1em 0.4em 1em;
 	text-shadow: 1px 1px 0px #d8e561;
 }
@@ -391,7 +390,7 @@ a:hover {
 	display: inline-block;
 	font-size: 18px;
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 40px;
 	padding: 0.5em 1.0em;
 	text-shadow: 1px 1px 0px #080b0f;
 	img {
