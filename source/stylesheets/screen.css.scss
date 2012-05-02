@@ -76,6 +76,9 @@ header {
         a {
           color: #e4e5e8;
         }
+        a:hover {
+          color: #abbde7;
+        }
       }
     }
   }
@@ -170,6 +173,21 @@ a:hover#video-preview {
       margin-right: 10px;
     }
   }
+  .feature-left {
+    border: 1px solid #afb6c5;
+    float: left;
+    margin-right: 50px;
+  }
+  .feature-right {
+    border: 1px solid #afb6c5;
+    float: right;
+    margin-left: 50px;
+  }
+  .divider {
+    clear: both;
+    margin: 20px auto;
+  }
+  
 }
 
 .sidebar {
