@@ -85,6 +85,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    redcarpet (3.0.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rubyzip (0.9.7)
@@ -122,3 +123,4 @@ DEPENDENCIES
   heroku
   middleman (~> 2.0.15.1)
   middleman-blog
+  redcarpet (~> 3.0.0)

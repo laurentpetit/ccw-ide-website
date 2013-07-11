@@ -11,17 +11,25 @@ page "/feed.xml", :layout => false
 set :erb, :layout_engine => :slim
 set :blog_layout_engine, "slim"
 
+# For markdown support
+require 'redcarpet'
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true, :layout_engine => :slim
+
+page '/*', :layout => 'layout'
+
 # Susy Grids in Compass
 require 'susy'
+#require 'RDiscount'
 
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
   # activate :minify_css
-  
+
   # Minify Javascript on build
   # activate :minify_javascript
-  
+
   # Enable cache buster
   # activate :cache_buster
 end
